@@ -17,14 +17,14 @@ load_dotenv()
 
 # CONFIG
 API_BASE = "https://vuln.mlab.sh"   # Base URL of the API used to retrieve CVE data
-VERSION = "1.0"     # Application version, included in the User-Agent header
-LIMIT = 20          # Maximum number of CVEs retrieved per product
-DEBUG = False       # Debug mode: reduces the CVE limit and skips CVE storage
-DEBUG_LIMIT = 1     # CVE limit applied when debug mode is enabled
-FILE = "reviewed_cves.txt"  # File containing CVE IDs already sent to the webhook, to prevent duplicate notifications
+VERSION = "1.0"                     # Application version, included in the User-Agent header
+LIMIT = 20                          # Maximum number of CVEs retrieved per product
+DEBUG = False                       # Debug mode: reduces the CVE limit and skips CVE storage
+DEBUG_LIMIT = 1                     # CVE limit applied when debug mode is enabled
+FILE = "reviewed_cves.txt"          # File containing CVE IDs already sent to the webhook, to prevent duplicate notifications
 DISCORD_WEBHOOK_URL = os.getenv("DISCORD_WEBHOOK_URL").strip()
 PRODUCTS = ["nginx", "java", "docker", "php", "php-fpm"]  # Products to monitor for new CVEs
-DATE_START = 7      # Number of days to look back when retrieving CVEs
+DATE_START = 7                                            # Number of days to look back when retrieving CVEs
 
 reviewed = []
 date_start = (datetime.now() - timedelta(days=7)).strftime("%Y-%m-%d")
