@@ -33,8 +33,12 @@ def load_saved_cve_file():
     """Opens the CVEs storage and stores each entry as a global list.
     If the file doesn't exist, it is created automatically.
     Doesn't check for duplicates, to call only once per run.
+    This function does nothing when DEBUG = True
     """
 
+    if DEBUG:
+        return
+        
     if not(os.path.exists(FILE)):
         with open(FILE, "w") as f:
             f.write()
@@ -45,7 +49,11 @@ def load_saved_cve_file():
                 reviewed.append(line)
 
 def save_cve_data():
-    """Saves each entry in the 'reviewed' list into the CVEs storage"""
+    """Saves each entry in the 'reviewed' list into the CVEs storage.
+    Does nothing when DEBUG=True"""
+
+    if DEBUG = True:
+        return
 
     with open(FILE, "w") as f:
         for i in reviewed:
