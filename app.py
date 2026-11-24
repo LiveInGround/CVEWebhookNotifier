@@ -52,7 +52,7 @@ def save_cve_data():
     """Saves each entry in the 'reviewed' list into the CVEs storage.
     Does nothing when DEBUG=True"""
 
-    if DEBUG = True:
+    if DEBUG == True:
         return
 
     with open(FILE, "w") as f:
