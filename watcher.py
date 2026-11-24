@@ -69,7 +69,7 @@ def retreive_cve_list(product:str) -> list[any]|dict[any]:
         requests.exceptions.Timeout: If the request times out.
     """
 
-    ans = requests.get(f"{API_BASE}/api/v1/cve", params={"q": product, "limit": DEBUG_LIMIT if DEBUG else LIMIT, "sort": "severity", "dateStart": date_start}, headers={"User-Agent": f"CVE-Watchlist/{VERSION}"}, timeout=10)
+    ans = requests.get(f"{API_BASE}/api/v1/cve", params={"q": product, "limit": DEBUG_LIMIT if DEBUG else LIMIT, "sort": "severity", "dateStart": date_start}, headers={"User-Agent": f"CVE-Webhook-Notifier/{VERSION}"}, timeout=10)
     ans.raise_for_status()
     return ans.json()
 
